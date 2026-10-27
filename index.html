@@ -33,7 +33,7 @@ body{height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:colu
 .bubble{border-radius:4px 15px 15px 15px;background:#eff5f1;border:1px solid #e1ebe4;padding:10px 13px}
 .message.right .bubble{border-radius:15px 4px 15px 15px;background:#fbf3e5;border-color:#f0e5d2}
 .cn{font-family:"Noto Serif SC",serif;font-size:calc(19px * var(--scale));line-height:2.55}
-.cn .py-unit,.cn .word{display:inline-grid;grid-template-rows:auto auto;justify-items:center;align-items:end;vertical-align:bottom;gap:.4em;line-height:1.15;white-space:nowrap;text-align:center}.cn .py-unit{margin-inline:.035em}.cn .pinyin{grid-row:1;font:calc(10px * var(--scale)) Arial,sans-serif;color:#8a6ba8;line-height:1.15;white-space:nowrap}.cn .hanzi{grid-row:2;font:inherit;line-height:1.15;white-space:nowrap}
+.cn .py-unit,.cn .word{display:inline-grid;grid-template-rows:auto auto;justify-items:center;align-items:end;vertical-align:bottom;gap:.4em;line-height:1.15;white-space:nowrap;text-align:center;padding-bottom:.38em;border-bottom:1.5px solid transparent}.cn .py-unit{margin-inline:.035em}.cn .pinyin{grid-row:1;font:calc(10px * var(--scale)) Arial,sans-serif;color:#8a6ba8;line-height:1.15;white-space:nowrap}.cn .hanzi{grid-row:2;font:inherit;line-height:1.15;white-space:nowrap}
 .translate-hint{border:0;background:transparent;padding:0;margin-left:4px;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;color:#9a8a68;cursor:pointer}
 .translate-hint svg{display:block;width:14px;height:14px;transition:transform .18s ease}
 .message.open .translate-hint svg{transform:rotate(180deg)}
@@ -63,7 +63,7 @@ body{height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:colu
 .detail-label{display:block;font-size:11px;letter-spacing:.04em;color:#c5d7cc}
 .detail-section p{margin-top:3px}
 .close{float:right;border:0;background:#ffffff20;color:white;border-radius:50%;width:27px;height:27px}
-.hide-pinyin .cn{line-height:1.65}.hide-pinyin .cn .py-unit,.hide-pinyin .cn .word{grid-template-rows:auto;gap:0}.hide-pinyin .cn .pinyin{display:none}
+.hide-pinyin .cn{line-height:1.65}.hide-pinyin .cn .py-unit,.hide-pinyin .cn .word{grid-template-rows:auto;gap:0;padding-bottom:.02em}.hide-pinyin .cn .pinyin{display:none}
 @media(max-width:600px){
  .progress{width:15vw}.nav{gap:5px}.nav .step{min-width:58px;padding:6px;font-size:10px}.nav button{min-width:48px;padding:6px;font-size:10px}
  .top{height:52px;flex-basis:52px;padding:0 12px}
