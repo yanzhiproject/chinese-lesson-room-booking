@@ -143,7 +143,26 @@ button,select,input{font:inherit}
   .story { min-height:360px; padding:14px 20px; }
   .dialogue { gap:8px; }
 }
-</style></style><!-- data-lesson-embed-template:v1 --><style>[data-lesson-embedded] .lang{display:none!important}@media(max-width:680px){[data-lesson-embedded] .top{padding:4px 12px 0}[data-lesson-embedded] .title-row{gap:6px;margin:2px 0 5px}[data-lesson-embedded] .title{font-size:clamp(23px,6.4vw,29px);line-height:1.18}[data-lesson-embedded] .options{gap:8px 12px}[data-lesson-embedded] .wrap{padding:3px 10px calc(6px + env(safe-area-inset-bottom))}[data-lesson-embedded] .story{flex:1 1 auto;max-height:none;padding:10px 12px 8px;border-radius:16px}[data-lesson-embedded] .story:before{inset:5px;border-radius:12px}[data-lesson-embedded] .story h2{font-size:14px;margin-bottom:5px;padding-bottom:5px}[data-lesson-embedded] .dialogue{gap:9px}[data-lesson-embedded] .cn{font-size:calc(19px * var(--scale))}[data-lesson-embedded] .nav{gap:6px 8px;margin-top:5px}[data-lesson-embedded] .nav button{min-height:40px;padding:0 13px}}</style></head><body>
+</style><!-- data-lesson-embed-template:v1 --><style>[data-lesson-embedded] .lang{display:none!important}@media(max-width:680px){[data-lesson-embedded] .top{padding:4px 12px 0}[data-lesson-embedded] .title-row{gap:6px;margin:2px 0 5px}[data-lesson-embedded] .title{font-size:clamp(23px,6.4vw,29px);line-height:1.18}[data-lesson-embedded] .options{gap:8px 12px}[data-lesson-embedded] .wrap{padding:3px 10px calc(6px + env(safe-area-inset-bottom))}[data-lesson-embedded] .story{flex:1 1 auto;max-height:none;padding:10px 12px 8px;border-radius:16px}[data-lesson-embedded] .story:before{inset:5px;border-radius:12px}[data-lesson-embedded] .story h2{font-size:14px;margin-bottom:5px;padding-bottom:5px}[data-lesson-embedded] .dialogue{gap:9px}[data-lesson-embedded] .cn{font-size:calc(19px * var(--scale))}[data-lesson-embedded] .nav{gap:6px 8px;margin-top:5px}[data-lesson-embedded] .nav button{min-height:40px;padding:0 13px}}</style><style id="zoom-scroll-fix">
+@media (max-height: 900px) {
+  html { min-height:100%; overflow-y:auto !important; }
+  body { display:block !important; height:auto !important; min-height:100vh !important; min-height:100dvh !important; overflow:visible !important; }
+  .top { flex:none !important; }
+  .wrap { display:flex !important; flex:none !important; min-height:0 !important; height:auto !important; width:min(1440px,100%) !important; }
+  .story { flex:none !important; height:auto !important; min-height:58vh !important; max-height:none !important; overflow:visible !important; }
+  .dialogue { display:flex !important; flex:none !important; height:auto !important; min-height:0 !important; max-height:none !important; overflow:visible !important; }
+  .nav { flex:none !important; }
+  .detail { max-height:78vh !important; max-height:78dvh !important; }
+}
+@media (max-height: 560px) {
+  .top { padding-top:6px !important; }
+  .wrap { padding-top:4px !important; padding-bottom:8px !important; }
+  .title-row { margin-top:4px !important; margin-bottom:6px !important; }
+  .title { font-size:clamp(25px,4vw,44px) !important; }
+  .story { min-height:360px !important; padding:14px 20px !important; }
+  .dialogue { gap:8px !important; }
+}
+</style></head><body>
 <header class="top"><span class="brand" id="brand">ห้องเรียนภาษาจีน</span><div class="tools"><select class="lang" id="lang" aria-label="ภาษาของหน้าจอ"><option value="zh">中文</option><option value="th" selected>ไทย</option></select></div></header>
 <main class="wrap"><div class="title-row"><h1 class="title" lang="zh-Hans">请问您预订房间了吗？</h1><div class="options"><label class="switch"><span id="pinyinLabel">แสดงพินอิน</span><input type="checkbox" id="pinyin" checked></label><div class="size-options"><span class="label" id="sizeLabel">ขนาดตัวอักษร</span><div class="sizes"><button data-size="small">เล็ก</button><button data-size="medium" class="active">กลาง</button><button data-size="large">ใหญ่</button></div></div></div></div><section class="story" id="story"><h2 id="heading"></h2><ol id="dialogue" class="dialogue"></ol></section><nav class="nav"><button id="prev">ก่อนหน้า</button><button id="step" class="step" aria-label="ประโยคถัดไป">ประโยคถัดไป</button><div class="progress"><input id="progress" type="range" min="0" max="1" value="0" aria-label="บทสนทนา"></div><span class="counter" id="counter"></span><button id="next">ถัดไป</button></nav></main>
 <aside class="detail" id="detail"><button class="close" id="close" aria-label="ปิด">×</button><b id="dw" lang="zh-Hans"></b><small id="dp"></small><section class="detail-section"><span class="detail-label" id="meaningLabel"></span><p id="dm"></p></section><section class="detail-section"><span class="detail-label" id="posLabel"></span><p id="dpos"></p></section><section class="detail-section"><span class="detail-label" id="usageLabel"></span><p id="dt"></p></section><section class="detail-section"><span class="detail-label" id="exampleLabel"></span><p id="de" lang="zh-Hans"></p><p id="dthai"></p></section></aside>
@@ -194,3 +213,4 @@ function liftWord(word){document.querySelectorAll('.word.picked').forEach(w=>w.c
 new MutationObserver(()=>{if(!document.getElementById('detail').classList.contains('show'))document.querySelectorAll('.word.picked').forEach(w=>w.classList.remove('picked'))}).observe(document.getElementById('detail'),{attributes:true,attributeFilter:['class']});
 if(new URLSearchParams(location.search).has('embed'))tourSteps[lang]=tourSteps[lang].filter(step=>step.target!=='#lang');updateInterface();buildPages(0);startTour();
 </script></body></html>
+
